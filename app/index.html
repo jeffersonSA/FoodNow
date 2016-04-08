@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
+  </head>
+
+  <body ng-app="starterApp">
+    <!-- MENU -->
+    <div ng-controller="AppCtrl" ng-cloak>
+      <md-content >
+        <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Food Now</span>
+        <!-- fill up the space between left and right area -->
+        <md-button href="/app/#/pedido"> Pedido </md-button>
+        <md-button href="/app/#/usuario"> Usuario </md-button>
+        <md-button href="/app/#/cliente"> Cliente </md-button>
+        <md-button href="/app/#/entregador"> Entregador </md-button>
+      </div>
+    </md-toolbar>
+    <md-content>
+    </md-content>
+        <br>
+      </md-content>
+    </div>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+
+    <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-messages/angular-messages.js"></script>
+
+    <script src="app.js"></script>
+    <script src="/app/src/users/userController.js"></script>
+    <script src="/app/src/users/clientController.js"></script>
+ <div ng-view></div>
+
+  </body>
+</html>

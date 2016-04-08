@@ -1,0 +1,35 @@
+<div ng-controller="userController" layout="column" ng-cloak>
+  <md-content layout-padding>
+    <form name="projectForm">
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Nome completo</label>
+          <input name="clientName" ng-model="project.clientName" >
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Email</label>
+          <input name="email" ng-model="user.email" />
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Usuário</label>
+          <input name="clientName" ng-model="project.User" >
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Senha</label>
+          <input name="clientName" ng-model="project.password" type="password" >
+        </md-input-container>
+      </div>
+      <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+        <md-button class="md-fab md-primary md-button-controls" aria-label="Use Android" href="/app/#/usuario/novo">
+          <i class="material-icons icon-center">save</i>
+        </md-button>
+      </div>
+    </form>
+  </md-content>
+</div>
