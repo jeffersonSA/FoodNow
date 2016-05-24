@@ -1,49 +1,40 @@
-<div ng-controller="clientController" layout="column" ng-cloak>
+<div ng-controller="deliverymanController" layout="column" ng-cloak>
   <md-content layout-padding>
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
-          <label>Celular</label>
-          <input name="clientCel" ng-model="client.cel" >
-        </md-input-container>
-        <div flex="5" hide-xs hide-sm>
-          <!-- Spacer //-->
-        </div>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Telefone fixo</label>
-          <input name="clientPhone" ng-model="client.phone" />
-        </md-input-container>
-        <div flex="5" hide-xs hide-sm>
-          <!-- Spacer //-->
-        </div>
-        <md-input-container class="md-block" flex-gt-sm>
           <label>Nome</label>
-          <input name="clientName" ng-model="client.name" >
+          <input name="deliveryName" ng-model="delivery.name" >
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Telefone</label>
+          <input name="deliveryPhone" ng-model="delivery.phone" />
         </md-input-container>
       </div>
       <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/cliente/novo">
+        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/entregador/novo">
           <i class="material-icons icon-center">group_add</i>
         </md-button>
-      </section>
+    </section>
     </form>
   </md-content>
-
+  <div>
     <div>
       <md-toolbar layout="row" class="md-hue-3">
         <div class="md-toolbar-tools">
-          <span>Clientes</span>
+          <span>Entregadores</span>
         </div>
       </md-toolbar>
       <md-content>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="item in lstClients | filter:client" >
-
+          <md-list-item class="md-3-line" ng-repeat="item in deliveryman | filter:delivery" ng-click="null" class="noright">
+            <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
             <div class="md-list-item-text" layout="column">
               <h3>{{ item.name }}</h3>
-              <h4>{{ item.address }}</h4>
-              <p>{{ item.cel}}</p>
-              <p>{{ item.phone }}</p>
+              <h4>{{ item.phone }}</h4>
             </div>
             <md-icon class="md-secondary md-hue-3 edit-align"  aria-label="delete">
               <i class="material-icons">mode_edit</i>
@@ -55,3 +46,4 @@
         </md-list>
       </md-content>
     </div>
+  </div>

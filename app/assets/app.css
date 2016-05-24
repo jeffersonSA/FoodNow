@@ -110,13 +110,43 @@ span.name {
   padding-left:5px;
 }
 
-.icon-center{
-  margin-left: 19%;
+.icon-center-cad{
+  margin-top: 0px !important;
+  display: block !important;
+}
+
+.icon-center-search{
+  margin-top: 7px !important;
+  display: block !important;
 }
 
 .md-button-controls{
   display: flex;
 }
 .edit-align{
-  margin-right:25px !important;
+  margin-right:25px !important; 
+}
+
+
+.md-button.md-icon-button
+{
+  margin:0 30px !important;
+}
+
+.edit-align-delete{
+  top:28px !important;
+}
+
+md-list-item{
+  border: 1px solid  rgba(0,0,0,0.12);
+}
+
+.md-content-form-cad{
+  margin-left:4.4%;
+  width: 90%;
+}
+
+#loading{
+  left: 45%;
+  top: -25%
 }

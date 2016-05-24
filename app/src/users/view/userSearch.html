@@ -1,31 +1,24 @@
-<div ng-controller="userController" layout="column" ng-cloak>
+<div ng-controller="userSearchController" layout="column" ng-cloak>
   <md-content layout-padding>
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Nome completo</label>
-          <input name="clientName" ng-model="project.clientName" >
+          <input name="userName" ng-model="user.Name" >
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>
-          <input name="email" ng-model="user.email" />
-        </md-input-container>
-        <div flex="5" hide-xs hide-sm>
-          <!-- Spacer //-->
-        </div>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Usuário</label>
-          <input name="clientName" ng-model="project.User" >
+          <input name="email" ng-model="user.Email" />
         </md-input-container>
       </div>
       <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-fab md-primary md-button-controls" aria-label="Use Android" href="/app/#/usuario/novo">
-          <i class="material-icons icon-center">group_add</i>
+        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/usuario/add">
+          <i class="material-icons icon-center-search">group_add</i>
         </md-button>
-      </div>
+      </section>
     </form>
   </md-content>
   <div>
@@ -36,19 +29,18 @@
     </md-toolbar>
     <md-content>
       <md-list flex>
-        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null" class="noright">
-          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+        <md-list-item class="md-3-line" ng-repeat="item in todos | filter:user" ng-click="null" class="noright">
+          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.Name}}" />
           <div class="md-list-item-text" layout="column">
-            <h3>{{ item.name }}</h3>
-            <h4>{{ item.email }}</h4>
-            <p>{{ item.user }}</p>
+            <h3>{{ item.Name }}</h3>
+            <h4>{{ item.Email }}</h4>
           </div>
-           <md-icon class="md-secondary md-hue-3 edit-align"  aria-label="delete">
+          <md-icon class="md-secondary md-hue-3 edit-align"  aria-label="Edit" ng-click="edit(item,$event)" href="/app/#/usuario/add" >
             <i class="material-icons">mode_edit</i>
-           </md-icon>
-           <md-icon class="md-secondary"  aria-label="Chat">
-             <i class="material-icons">delete</i>
-           </md-icon>
+          </md-icon>
+          <md-icon class="md-secondary edit-align-delete"  aria-label="delete" ng-click="delete(item.Id,$event)">
+            <i class="material-icons">delete</i>
+          </md-icon>
         </md-list-item>
       </md-list>
     </md-content>

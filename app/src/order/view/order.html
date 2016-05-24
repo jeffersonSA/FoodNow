@@ -1,0 +1,168 @@
+<div ng-controller="orderController" layout="column" ng-cloak>
+  <md-content layout-padding class="md-content-form-cad">
+    <form name="projectForm">
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Telefone</label>
+          <input name="orderPhone" ng-model="order.phone" />
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Nome</label>
+          <input name="orderName" ng-model="order.Name" >
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Rua</label>
+          <input name="orderAddress" ng-model="order.Address" >
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Num.</label>
+          <input name="orderNum" ng-model="order.Num" >
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Cidade</label>
+          <input name="orderCity" ng-model="order.City" >
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Estado</label>
+          <input name="orderState" ng-model="order.State" >
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Cep</label>
+          <input name="orderCep" ng-model="order.Cep" >
+        </md-input-container>
+      </div>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Sanduíches">
+            <div ng-cloak layout-gt-sm="row" layout="column">
+              <div flex-gt-sm="50" flex>
+                <div class="md-toolbar-tools">
+                  <span>Sanduíches</span>
+                </div>
+                <md-content class="md-padding">
+                  <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="item in sandwichs" ng-click="null" class="noright">
+                      <md-checkbox ng-model="message.selected"></md-checkbox>
+                      <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                      <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.name }}</h3>
+                        <h4>{{ item.value }}</h4>
+                      </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-list-item>
+                  </md-list>
+                </md-content>
+              </div>
+              <div flex-gt-sm="50" flex>
+
+                  <div class="md-toolbar-tools">
+                    <span>Igredientes</span>
+                  </div>
+
+                <md-content class="md-padding">
+                  <md-content>
+                    <md-list flex>
+                      <md-list-item class="md-3-line" ng-repeat="item in sandwichs" ng-click="null" class="noright">
+                        <md-checkbox ng-model="message.selected"></md-checkbox>
+                        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                        <div class="md-list-item-text" layout="column">
+                          <h3>{{ item.name }}</h3>
+                          <h4>{{ item.value }}</h4>
+                        </div>
+  <md-divider ng-if="!$last"></md-divider>
+                      </md-list-item>
+                    </md-list>
+                  </md-content>
+                </md-content>
+              </div>
+            </div>
+          </md-tab>
+          <md-tab label="Acompanhamentos">
+            <md-content class="md-padding">
+              <md-content>
+                <md-list flex>
+                  <md-list-item class="md-3-line" ng-repeat="item in sandwichs" ng-click="null" class="noright">
+                    <md-checkbox ng-model="message.selected"></md-checkbox>
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                    <div class="md-list-item-text" layout="column">
+                      <h3>{{ item.name }}</h3>
+                      <h4>{{ item.value }}</h4>
+                    </div>
+  <md-divider ng-if="!$last"></md-divider>
+                  </md-list-item>
+                </md-list>
+              </md-content>
+            </md-content>
+          </md-tab>
+          <md-tab label="Bebidas">
+            <md-content class="md-padding">
+              <md-content>
+                <md-list flex>
+                  <md-list-item class="md-3-line" ng-repeat="item in sandwichs" ng-click="null" class="noright">
+                    <md-checkbox ng-model="message.selected"></md-checkbox>
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                    <div class="md-list-item-text" layout="column">
+                      <h3>{{ item.name }}</h3>
+                      <h4>{{ item.value }}</h4>
+                    </div>
+                  <md-divider ng-if="!$last"></md-divider>
+                  </md-list-item>
+                </md-list>
+              </md-content>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+        <div>
+          <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <span>Pedido</span>
+            </div>
+          </md-toolbar>
+          <md-content>
+            <md-list flex>
+              <md-list-item class="md-3-line" ng-repeat="item in deliveryman" ng-click="null" class="noright">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
+                <div class="md-list-item-text" layout="column">
+                  <h3>{{ item.name }}</h3>
+                  <h4>{{ item.phone }}</h4>
+                  <p>{{ item.address }}</p>
+                  <p>{{ item.deliveryman }}</p>
+                  <p>{{item.order}}</p>
+                </div>
+
+                <md-icon class="md-secondary md-hue-3 edit-align"  aria-label="delete">
+                  <i class="material-icons">mode_edit</i>
+                </md-icon>
+                <md-icon class="md-secondary"  aria-label="Chat">
+                  <i class="material-icons">delete</i>
+                </md-icon>
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </div>
+        <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+          <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/entregador">
+            <i class="material-icons icon-center">save</i>
+          </md-button>
+        </section>
+      </div>
+    </form>
+  </md-content>
+</div>

@@ -1,35 +1,45 @@
-<div ng-controller="userController" layout="column" ng-cloak>
-  <md-content layout-padding>
+<div ng-controller="userController" layout="column" ng-cloak ng-init="init()">
+  <md-content layout-padding class="md-content-form-cad">
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Nome completo</label>
-          <input name="clientName" ng-model="project.clientName" >
+          <input required name="clientName" id="clientName" ng-model="user.Name"   >
+          <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required" >Campo obrigatório.</div>
+          </div>
         </md-input-container>
       </div>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>
-          <input name="email" ng-model="user.email" />
-        </md-input-container>
-      </div>
-      <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Usuário</label>
-          <input name="clientName" ng-model="project.User" >
+          <input required name="email" ng-model="user.Email" />
+          <div ng-messages="projectForm.email.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+          </div>
         </md-input-container>
       </div>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Senha</label>
-          <input name="clientName" ng-model="project.password" type="password" >
+          <input required name="password" ng-model="user.Password" type="password"  >
+          <div ng-messages="projectForm.password.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+          </div>
         </md-input-container>
       </div>
       <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-fab md-primary md-button-controls" aria-label="Use Android" href="/app/#/usuario/novo">
-          <i class="material-icons icon-center">save</i>
+        <md-button  class="md-raised md-primary" aria-label="Use Android" ng-click="save()" ng-disabled="projectForm.$invalid">
+          <i class="material-icons icon-center-cad">save</i>
+        </md-button>
+        <md-button  class="md-raised md-primary" aria-label="Use Android" ng-click="back()" >
+          <i class="material-icons icon-center-cad" >reply</i>
         </md-button>
       </div>
+      </section>
+          <md-progress-circular md-mode="indeterminate" ng-show="isLoading"></md-progress-circular>
+      
     </form>
+
   </md-content>
 </div>
