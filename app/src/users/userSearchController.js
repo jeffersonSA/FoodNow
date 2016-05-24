@@ -14,7 +14,7 @@ angular.module('starterApp')
                 
         ///End Methods   
 
-        ///Events
+        ///Events 
         $scope.edit = function (user, event) {
             serviceUser.setUser(user);
         }

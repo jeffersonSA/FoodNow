@@ -10,7 +10,7 @@ angular
   ///Methods
   $scope.reset = function(){
     $scope.client = "";
-  }
+  } 
   /// End Metohds
 
   ///Events
