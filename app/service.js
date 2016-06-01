@@ -3,7 +3,9 @@ angular
   .module('starterApp')
 
   .service("serviceServer", function ($http, $mdDialog) {
-
+    
+    var objFrm;
+    
     this.getAll = function (url) {
       return $http.get(url);
     }
@@ -51,6 +53,14 @@ angular
                 .closeTo();
 
             return confirm;
+    }
+    
+    this.setObject = function(value){
+      objFrm = value;
+    }
+    
+    this.getObject = function(){
+      return objFrm;
     }
     
     return this;

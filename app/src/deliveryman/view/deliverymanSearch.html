@@ -1,10 +1,10 @@
-<div ng-controller="deliverymanController" layout="column" ng-cloak>
+<div ng-controller="deliverymanSearchController" layout="column" ng-cloak>
   <md-content layout-padding>
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Nome</label>
-          <input name="deliveryName" ng-model="delivery.name" >
+          <input name="deliveryName" ng-model="delivery.name">
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
@@ -15,10 +15,10 @@
         </md-input-container>
       </div>
       <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/entregador/novo">
+        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/entregador/add" ng-click="newData()">
           <i class="material-icons icon-center">group_add</i>
         </md-button>
-    </section>
+      </section>
     </form>
   </md-content>
   <div>
@@ -30,16 +30,16 @@
       </md-toolbar>
       <md-content>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="item in deliveryman | filter:delivery" ng-click="null" class="noright">
+          <md-list-item class="md-3-line" ng-repeat="item in todos | filter:delivery" ng-click="null" class="noright">
             <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.name}}" />
             <div class="md-list-item-text" layout="column">
-              <h3>{{ item.name }}</h3>
-              <h4>{{ item.phone }}</h4>
+              <h3>{{ item.Name }}</h3>
+              <h4>{{ item.Phone }}</h4>
             </div>
-            <md-icon class="md-secondary md-hue-3 edit-align"  aria-label="delete">
+            <md-icon class="md-secondary md-hue-3 edit-align" aria-label="Edit" ng-click="edit(item,$event)" href="/app/#/entregador/add">
               <i class="material-icons">mode_edit</i>
             </md-icon>
-            <md-icon class="md-secondary"  aria-label="Chat">
+            <md-icon class="md-secondary edit-align-delete" aria-label="delete" ng-click="delete(item.Id,$event)">
               <i class="material-icons">delete</i>
             </md-icon>
           </md-list-item>

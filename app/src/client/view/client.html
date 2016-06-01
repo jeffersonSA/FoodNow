@@ -1,71 +1,104 @@
-<div ng-controller="userController" layout="column" ng-cloak>
+<div ng-controller="clientController" layout="column" ng-cloak ng-init="init()">
   <md-content layout-padding class="md-content-form-cad">
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Nome</label>
-          <input name="clientName" ng-model="client.name" >
+          <input name="clientName" ng-model="client.Name" required>
+          <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+          </div>
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>
-          <input name="email" ng-model="client.email" />
+          <input name="email" ng-model="client.Email" />
         </md-input-container>
       </div>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Celular</label>
-          <input name="" ng-model="client.cel" />
+          <input name="cell" ng-model="client.Cell" ng-required="!client.Phone" />
+          <div ng-messages="projectForm.Cell.$error"  >
+            <div ng-message="required" ng-if="!client.Phone"  >Campo obrigatório.</div>
+          </div>
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Telefone fixo</label>
-          <input name="" ng-model="client.phone" />
+          <input name="phone" ng-model="client.Phone" ng-required="!client.Cell" />
+           <div ng-messages="projectForm.phone.$error"   >
+            <div ng-message="required" ng-if="!client.Cell" >Campo obrigatório.</div>
+          </div>
         </md-input-container>
       </div>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Cep</label>
-          <input name="" ng-model="client.cep" />
+          <input name="" ng-model="client.Zip" ng-blur="searchCep(client)" required />
+          <div ng-messages="projectForm.Zip.$error"  >
+            <div ng-message="required">Campo obrigatório.</div>
+          </div>
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Rua</label>
-          <input name="" ng-model="client.street" />
+          <input name="street" ng-model="client.Street" disabled />
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Número</label>
-          <input name="" ng-model="client.num" />
+          <input name="" ng-model="client.Num" required />
+          <div ng-messages="projectForm.Num.$error"  >
+            <div ng-message="required">Campo obrigatório.</div>
+          </div>
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
-        <md-input-container>
-          <label>State</label>
-          <md-select ng-model="ctrl.userState">
-            <md-option ng-repeat="state in states" value="{{state.abbrev}}" ng-disabled="$index === 1">
-              {{state.abbrev}}
-            </md-option>
-          </md-select>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Bairro</label>
+          <input name="neighborhood" ng-model="client.Neighborhood" disabled />
         </md-input-container>
-      </div>
-      <div layout-gt-sm="row">
 
       </div>
-      <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/usuario/novo">
-          <i class="material-icons icon-center">save</i>
-        </md-button>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Cidade</label>
+          <input name="city" ng-model="client.City" disabled />
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Estado</label>
+          <input name="state" ng-model="client.State" disabled />
+        </md-input-container>
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Complemento</label>
+          <input name="complement" ng-model="client.Complement" />
+        </md-input-container>
       </div>
-    </form>
-  </md-content>
+      <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+         <md-button  class="md-raised md-primary" aria-label="Use Android" ng-click="save()" ng-disabled="projectForm.$invalid">
+          <i class="material-icons icon-center-cad">save</i>
+        </md-button>
+        <md-button  class="md-raised md-primary" aria-label="Use Android" ng-click="back()" >
+          <i class="material-icons icon-center-cad" >reply</i>
+        </md-button>
+      </section>
+</div>
+</form>
+</md-content>
 </div>

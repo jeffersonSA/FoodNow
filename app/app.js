@@ -7,7 +7,6 @@ angular
 
 })
 
-
 .config(function($routeProvider, $locationProvider,$mdIconProvider){
   $routeProvider
   // Route User //
@@ -58,7 +57,7 @@ angular
   // Route Client //
   .when('/cliente',{
     templateUrl: '/app/src/client/view/clientSearch.html',
-    controller:'clientController',
+    controller:'clientSearchController',
     resolve:{
       delay: function($q, $timeout) {
         var delay = $q.defer();
@@ -67,7 +66,7 @@ angular
       }
     }
   })
-  .when('/cliente/novo',{
+  .when('/cliente/add',{
     templateUrl: '/app/src/client/view/client.html',
     controller:'clientController',
     resolve:{
@@ -91,7 +90,7 @@ angular
       }
     }
   })
-  .when('/entregador/novo',{
+  .when('/entregador/add',{
     templateUrl: '/app/src/deliveryman/view/deliveryman.html',
     controller:'deliverymanController',
     resolve:{

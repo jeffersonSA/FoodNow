@@ -1,6 +1,6 @@
 'use strict'
 angular.module('starterApp')
-    .controller('clientSearchController', function ($scope, $route, $routeParams, $mdDialog, $location, $http, serviceServer, userService) {
+    .controller('clientSearchController', function ($scope, $route, $routeParams, $mdDialog, $location, $http, serviceServer, serviceClient) {
 
         var url = 'http://localhost:50073/api/Client';
 
@@ -10,13 +10,13 @@ angular.module('starterApp')
                 $scope.lstClients = client;
             });
         }
-        
-       $scope.getAllClients();
+
+        $scope.getAllClients();
         ///End Methods
-        
+
         ///Events
-        
-         $scope.edit = function (client, event) {
+
+        $scope.edit = function (client, event) {
             serviceClient.setClient(client);
         }
 
@@ -32,12 +32,12 @@ angular.module('starterApp')
                     })
                     .error(function () {
                         serviceServer.showInfoModal("Erro", "Erro ao remover Cliente!");
-                       // scope.isLoading = false;
+                        // scope.isLoading = false;
                     });
             }, function () {
 
             });
         }
-         
+
         ///End Events
     });

@@ -1,21 +1,21 @@
-<div ng-controller="userController" layout="column" ng-cloak>
+<div ng-controller="deliverymanController" layout="column" ng-cloak ng-init="init()">
   <md-content layout-padding class="md-content-form-cad">
     <form name="projectForm">
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Nome</label>
-          <input name="deliveryName" ng-model="delivery.Name" >
+          <input name="deliveryName" ng-model="deliveryman.Name" >
         </md-input-container>
         <div flex="5" hide-xs hide-sm>
           <!-- Spacer //-->
         </div>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Telefone</label>
-          <input name="deliveryPhone" ng-model="delivery.phone" />
+          <input name="deliveryPhone" ng-model="deliveryman.Phone" />
         </md-input-container>
       </div>
       <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-        <md-button class="md-raised md-primary" aria-label="Use Android" href="/app/#/entregador">
+        <md-button class="md-raised md-primary" aria-label="Use Android" ng-click="save()">
           <i class="material-icons icon-center">save</i>
         </md-button>
       </section>
